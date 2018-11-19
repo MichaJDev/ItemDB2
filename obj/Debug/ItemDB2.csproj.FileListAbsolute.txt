@@ -1,0 +1,15 @@
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\bin\Debug\ItemDB2.exe.config
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\bin\Debug\ItemDB2.exe
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\bin\Debug\ItemDB2.pdb
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\obj\Debug\ItemDB2.csprojAssemblyReference.cache
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\obj\Debug\ItemDB2.Form1.resources
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\obj\Debug\ItemDB2.Properties.Resources.resources
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\obj\Debug\ItemDB2.csproj.GenerateResource.cache
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\obj\Debug\ItemDB2.csproj.CoreCompileInputs.cache
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\obj\Debug\ItemDB2.exe
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\obj\Debug\ItemDB2.pdb
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\obj\Debug\ItemDB2.AddItem.resources
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\obj\Debug\ItemDB2.DelItem.resources
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\obj\Debug\ItemDB2.ShowDB.resources
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\bin\Debug\MySql.Data.dll
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB_v2\ItemDB2\ItemDB2\obj\Debug\ItemDB2.csproj.CopyComplete
