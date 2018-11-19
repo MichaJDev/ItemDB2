@@ -14,6 +14,7 @@ namespace ItemDB2
 
     class Connect
     {
+
         //TODO: Dynamic Additation of Tables to the Database on First start.    
         string server, database, uid, password;
         MySqlConnection connection;
@@ -28,6 +29,14 @@ namespace ItemDB2
                 database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
             connection = new MySqlConnection(connectionString);
+        }
+
+        public void setCredentials(string server, string db, string uid, string pass)
+        {
+            this.server = server;
+            this.database = db;
+            this.uid = uid;
+            this.password = pass;
         }
 
         public bool OpenConnection()
@@ -60,11 +69,14 @@ namespace ItemDB2
         public void Insert(Item item)
         {
             MessageBox.Show(item.getType().ToLower());
-            string query = "INSERT INTO " + item.getType().ToLower() + " + (Name,Desc,Worth,Stamina,Strength,Intellect,Agility,Haste,Mastery) VALUES('" + item.getName() + "', '" + item.getDesc() + "','" + item.getStam() + "','" + item.getStr() + "', '" + item.getIntl() + "', '" + item.getAgi() + "', '" + item.getHas() + "', '" + item.getMas() + "')";
+            string query;
+            
+            query = "INSERT INTO '" + item.getType().ToLower() + "' (Name,Desc,Worth,Stamina,Strength,Intellect,Agility,Haste,Mastery) VALUES('" + item.getName() + "', '" + item.getDesc() + "','" + item.getWorth() + "', " + item.getStam() + ", " + item.getStr() + ", " + item.getIntl() + ", " + item.getAgi() + ", " + item.getHas() + ", " + item.getMas() + ")";
+           
             if (OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
+                cmd.BeginExecuteNonQuery();
                 this.CloseConnection();
 
             }
@@ -115,7 +127,7 @@ namespace ItemDB2
         }
         public void createTable(String text)
         {
-            string query = "CREATE TABLE `" + text + "` (`ID` INT NOT NULL AUTO_INCREMENT,	`Name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,	`Desc` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin,	`Worth` VARCHAR(255) NOT NULL,	`Stamina` INT(4),	`Strength` INT(4),	`Intellect` INT(4),	`Agility` INT(4), 	`Haste` INT(4),	`Mastery` INT(4),	PRIMARY KEY(`ID`)); ";
+            string query = "CREATE TABLE `" + text + "` (`ID` INT NOT NULL AUTO_INCREMENT,	`Name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci  NOT NULL,	`Desc` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci,	`Worth` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,	`Stamina` INT(4),	`Strength` INT(4),	`Intellect` INT(4),	`Agility` INT(4), 	`Haste` INT(4),	`Mastery` INT(4),	PRIMARY KEY(`ID`)); ";
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);

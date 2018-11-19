@@ -18,9 +18,12 @@ namespace ItemDB2
         ShowDB sDB;
         Connect db;
         Handler hlr;
+        DBCredentials dbc;
         public Form1()
         {
+            
             InitializeComponent();
+            
             aItem = new AddItem();
             db = new Connect();
             dItem = new DelItem();
@@ -34,8 +37,8 @@ namespace ItemDB2
                     "This is ItemDB v2" +
                     "\n" +
                     "This project was created by Micha Janssen");
+                this.Show();
                 hlr.checkTables();
-
             }
         }
 

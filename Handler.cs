@@ -33,6 +33,12 @@ namespace ItemDB2
             }
         }
 
+        internal void setLogin(Login log)
+        {
+            con.setCredentials(log.getServer(), log.getDataBase(), log.getUserName(), log.getPassWord());
+
+        }
+
         public void AddJson()
         {
             //Add Stuff For JSON Additation

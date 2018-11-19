@@ -74,6 +74,12 @@
       <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Connect.cs" />
+    <Compile Include="DBCredentials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBCredentials.Designer.cs">
+      <DependentUpon>DBCredentials.cs</DependentUpon>
+    </Compile>
     <Compile Include="DelItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,7 @@
     </Compile>
     <Compile Include="Handler.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShowDB.cs">
@@ -98,6 +105,9 @@
     </Compile>
     <EmbeddedResource Include="AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DBCredentials.resx">
+      <DependentUpon>DBCredentials.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DelItem.resx">
       <DependentUpon>DelItem.cs</DependentUpon>
