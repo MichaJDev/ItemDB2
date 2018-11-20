@@ -21,9 +21,9 @@ namespace ItemDB2
         DBCredentials dbc;
         public Form1()
         {
-            
+
             InitializeComponent();
-            
+            dbc = new DBCredentials();
             aItem = new AddItem();
             db = new Connect();
             dItem = new DelItem();
@@ -32,12 +32,12 @@ namespace ItemDB2
             if ((bool)Properties.Settings.Default["FirstRun"] == true)
             {
                 Properties.Settings.Default["FirstRun"] = false;
+
                 MessageBox.Show("Welcome!\n " +
-                    "\n" +
-                    "This is ItemDB v2" +
-                    "\n" +
-                    "This project was created by Micha Janssen");
-                this.Show();
+               "\n" +
+               "This is ItemDB v2" +
+               "\n" +
+               "This project was created by Micha Janssen");
                 hlr.checkTables();
             }
         }

@@ -12,7 +12,7 @@ namespace ItemDB2
 {
     public partial class ShowDB : Form
     {
-        Connect db = new Connect();
+        Handler hlr = new Handler();
 
         public ShowDB()
         {
@@ -46,7 +46,7 @@ namespace ItemDB2
         {
             if (cbType.Text != "-----------------------------------")
             {
-                db.getData(cbType.Text);
+                dbgrid.DataSource = hlr.getBSource(cbType.Text);
             }
             else
             {

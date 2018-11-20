@@ -36,7 +36,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(713, 415);
+            this.btnClose.Location = new System.Drawing.Point(972, 415);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 0;
@@ -58,19 +58,20 @@
             this.dbgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dbgrid.Location = new System.Drawing.Point(12, 12);
             this.dbgrid.Name = "dbgrid";
-            this.dbgrid.Size = new System.Drawing.Size(776, 397);
+            this.dbgrid.Size = new System.Drawing.Size(1035, 397);
             this.dbgrid.TabIndex = 2;
             // 
             // ShowDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1056, 450);
             this.Controls.Add(this.dbgrid);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ShowDB";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ShowDB";
             this.Load += new System.EventHandler(this.ShowDB_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrid)).EndInit();

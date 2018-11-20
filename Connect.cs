@@ -81,8 +81,9 @@ namespace ItemDB2
             }
         }
 
-        public void getData(String Text)
+        public BindingSource getData(String Text)
         {
+            BindingSource dSource = new BindingSource();
             string query = "SELECT * FROM " + Text;
             if (OpenConnection())
             {
@@ -93,10 +94,12 @@ namespace ItemDB2
 
                 BindingSource bSource = new BindingSource();
                 bSource.DataSource = tbl;
-                ShowDB db = new ShowDB();
-                db.setData(bSource);
+                dSource = bSource;
+                               
                 CloseConnection();
+                
             }
+            return dSource;
         }
 
         public bool checkItemTable(String Text)

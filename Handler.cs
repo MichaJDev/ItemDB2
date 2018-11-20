@@ -38,7 +38,10 @@ namespace ItemDB2
             con.setCredentials(log.getServer(), log.getDataBase(), log.getUserName(), log.getPassWord());
 
         }
-
+        public BindingSource getBSource(String text)
+        {
+            return con.getData(text);
+        }
         public void AddJson()
         {
             //Add Stuff For JSON Additation

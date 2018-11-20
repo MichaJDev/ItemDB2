@@ -14,12 +14,13 @@ namespace ItemDB2
     {
         Login log;
         Handler hlr;
-        Form1 form1;
+
+        public bool logged = false;
         public DBCredentials()
         {
             InitializeComponent();
             hlr = new Handler();
-            form1.Hide();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,7 +28,9 @@ namespace ItemDB2
             log = new Login(tbServer.Text, tbDB.Text, tbUser.Text, tbPassword.Text);
             hlr.setLogin(log);
             this.Hide();
-            
+            logged = true;
+            Form1 form = new Form1();
+            form.Show();
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
@@ -37,6 +40,10 @@ namespace ItemDB2
             {
                 MessageBox.Show("The Caps Lock key is ON.");
             }
+        }
+        public bool isLogged()
+        {
+            return logged;
         }
     }
 }
