@@ -38,7 +38,10 @@ namespace ItemDB2
             }
             cbType.SelectedIndex = 0;
         }
-
+        public void setData(BindingSource bs)
+        {
+            dbgrid.DataSource = bs;
+        }
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbType.Text != "-----------------------------------")

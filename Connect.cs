@@ -70,22 +70,21 @@ namespace ItemDB2
         {
             MessageBox.Show(item.getType().ToLower());
             string query;
-            
-            query = "INSERT INTO '" + item.getType().ToLower() + "' (Name,Desc,Worth,Stamina,Strength,Intellect,Agility,Haste,Mastery) VALUES('" + item.getName() + "', '" + item.getDesc() + "','" + item.getWorth() + "', " + item.getStam() + ", " + item.getStr() + ", " + item.getIntl() + ", " + item.getAgi() + ", " + item.getHas() + ", " + item.getMas() + ")";
            
-            if (OpenConnection() == true)
+            query = "INSERT INTO " + item.getType().ToLower() + "(Name,Description,Worth,Stamina,Strength,Intellect,Agility,Haste,Mastery) VALUES('" + item.getName() + "', '" + item.getDesc() + "','" + item.getWorth() + "', " + item.getStam() + ", " + item.getStr() + ", " + item.getIntl() + ", " + item.getAgi() + ", " + item.getHas() + ", " + item.getMas() + ")";
+
+            if(OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.BeginExecuteNonQuery();
+                cmd.ExecuteNonQuery();
                 this.CloseConnection();
-
             }
         }
 
         public void getData(String Text)
         {
-            string query = "SELECT * from" + Text;
-            if (OpenConnection() == true)
+            string query = "SELECT * FROM " + Text;
+            if (OpenConnection())
             {
                 MySqlDataAdapter mda = new MySqlDataAdapter();
                 mda.SelectCommand = new MySqlCommand(query, connection);
@@ -95,7 +94,7 @@ namespace ItemDB2
                 BindingSource bSource = new BindingSource();
                 bSource.DataSource = tbl;
                 ShowDB db = new ShowDB();
-                db.dbgrid.DataSource = bSource;
+                db.setData(bSource);
                 CloseConnection();
             }
         }
@@ -104,7 +103,7 @@ namespace ItemDB2
         {
             bool tableExists = false;
             string query = "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'test' AND table_name = '" + Text + "'";
-            if (this.OpenConnection() == true)
+            if (OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -127,8 +126,8 @@ namespace ItemDB2
         }
         public void createTable(String text)
         {
-            string query = "CREATE TABLE `" + text + "` (`ID` INT NOT NULL AUTO_INCREMENT,	`Name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci  NOT NULL,	`Desc` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci,	`Worth` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,	`Stamina` INT(4),	`Strength` INT(4),	`Intellect` INT(4),	`Agility` INT(4), 	`Haste` INT(4),	`Mastery` INT(4),	PRIMARY KEY(`ID`)); ";
-            if (this.OpenConnection() == true)
+            string query = "CREATE TABLE `" + text + "` (`ID` INT NOT NULL AUTO_INCREMENT,	`Name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci  NOT NULL,	`Description` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci,	`Worth` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,	`Stamina` INT(4),	`Strength` INT(4),	`Intellect` INT(4),	`Agility` INT(4), 	`Haste` INT(4),	`Mastery` INT(4),	PRIMARY KEY(`ID`)); ";
+            if (OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
