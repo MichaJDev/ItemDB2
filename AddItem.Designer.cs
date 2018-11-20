@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label label1;
-            this.btnClose = new System.Windows.Forms.Button();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbDesc = new System.Windows.Forms.TextBox();
@@ -61,38 +60,28 @@
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.Location = new System.Drawing.Point(13, 13);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(89, 20);
+            label1.Size = new System.Drawing.Size(94, 20);
             label1.TabIndex = 17;
-            label1.Text = "ADDITEM";
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(205, 401);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 22);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            label1.Text = "ADD ITEM";
             // 
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(12, 57);
+            this.cbType.Location = new System.Drawing.Point(16, 57);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(127, 21);
             this.cbType.TabIndex = 1;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(13, 97);
+            this.tbName.Location = new System.Drawing.Point(17, 97);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(267, 20);
             this.tbName.TabIndex = 2;
             // 
             // tbDesc
             // 
-            this.tbDesc.Location = new System.Drawing.Point(12, 137);
+            this.tbDesc.Location = new System.Drawing.Point(16, 137);
             this.tbDesc.Name = "tbDesc";
             this.tbDesc.Size = new System.Drawing.Size(267, 20);
             this.tbDesc.TabIndex = 3;
@@ -100,7 +89,7 @@
             // cbWorth
             // 
             this.cbWorth.FormattingEnabled = true;
-            this.cbWorth.Location = new System.Drawing.Point(157, 57);
+            this.cbWorth.Location = new System.Drawing.Point(161, 57);
             this.cbWorth.Name = "cbWorth";
             this.cbWorth.Size = new System.Drawing.Size(122, 21);
             this.cbWorth.TabIndex = 4;
@@ -108,7 +97,7 @@
             // tbStam
             // 
             this.tbStam.BackColor = System.Drawing.Color.Gray;
-            this.tbStam.Location = new System.Drawing.Point(121, 166);
+            this.tbStam.Location = new System.Drawing.Point(125, 174);
             this.tbStam.Name = "tbStam";
             this.tbStam.ReadOnly = true;
             this.tbStam.Size = new System.Drawing.Size(158, 20);
@@ -118,7 +107,7 @@
             // tbStr
             // 
             this.tbStr.BackColor = System.Drawing.Color.Gray;
-            this.tbStr.Location = new System.Drawing.Point(121, 204);
+            this.tbStr.Location = new System.Drawing.Point(125, 212);
             this.tbStr.Name = "tbStr";
             this.tbStr.ReadOnly = true;
             this.tbStr.Size = new System.Drawing.Size(158, 20);
@@ -128,7 +117,7 @@
             // tbAgi
             // 
             this.tbAgi.BackColor = System.Drawing.Color.Gray;
-            this.tbAgi.Location = new System.Drawing.Point(122, 242);
+            this.tbAgi.Location = new System.Drawing.Point(126, 250);
             this.tbAgi.Name = "tbAgi";
             this.tbAgi.ReadOnly = true;
             this.tbAgi.Size = new System.Drawing.Size(158, 20);
@@ -138,7 +127,7 @@
             // tbInt
             // 
             this.tbInt.BackColor = System.Drawing.Color.Gray;
-            this.tbInt.Location = new System.Drawing.Point(121, 281);
+            this.tbInt.Location = new System.Drawing.Point(125, 289);
             this.tbInt.Name = "tbInt";
             this.tbInt.Size = new System.Drawing.Size(158, 20);
             this.tbInt.TabIndex = 8;
@@ -147,7 +136,7 @@
             // tbHas
             // 
             this.tbHas.BackColor = System.Drawing.Color.Gray;
-            this.tbHas.Location = new System.Drawing.Point(121, 322);
+            this.tbHas.Location = new System.Drawing.Point(125, 330);
             this.tbHas.Name = "tbHas";
             this.tbHas.ReadOnly = true;
             this.tbHas.Size = new System.Drawing.Size(158, 20);
@@ -157,7 +146,7 @@
             // tbMas
             // 
             this.tbMas.BackColor = System.Drawing.Color.Gray;
-            this.tbMas.Location = new System.Drawing.Point(121, 363);
+            this.tbMas.Location = new System.Drawing.Point(125, 371);
             this.tbMas.Name = "tbMas";
             this.tbMas.ReadOnly = true;
             this.tbMas.Size = new System.Drawing.Size(158, 20);
@@ -167,7 +156,7 @@
             // cbStam
             // 
             this.cbStam.AutoSize = true;
-            this.cbStam.Location = new System.Drawing.Point(12, 169);
+            this.cbStam.Location = new System.Drawing.Point(16, 177);
             this.cbStam.Name = "cbStam";
             this.cbStam.Size = new System.Drawing.Size(80, 17);
             this.cbStam.TabIndex = 11;
@@ -177,7 +166,7 @@
             // cbStr
             // 
             this.cbStr.AutoSize = true;
-            this.cbStr.Location = new System.Drawing.Point(12, 207);
+            this.cbStr.Location = new System.Drawing.Point(16, 215);
             this.cbStr.Name = "cbStr";
             this.cbStr.Size = new System.Drawing.Size(80, 17);
             this.cbStr.TabIndex = 12;
@@ -187,7 +176,7 @@
             // cbAgi
             // 
             this.cbAgi.AutoSize = true;
-            this.cbAgi.Location = new System.Drawing.Point(12, 246);
+            this.cbAgi.Location = new System.Drawing.Point(16, 254);
             this.cbAgi.Name = "cbAgi";
             this.cbAgi.Size = new System.Drawing.Size(80, 17);
             this.cbAgi.TabIndex = 13;
@@ -197,7 +186,7 @@
             // cbInt
             // 
             this.cbInt.AutoSize = true;
-            this.cbInt.Location = new System.Drawing.Point(12, 284);
+            this.cbInt.Location = new System.Drawing.Point(16, 292);
             this.cbInt.Name = "cbInt";
             this.cbInt.Size = new System.Drawing.Size(80, 17);
             this.cbInt.TabIndex = 14;
@@ -207,7 +196,7 @@
             // cbHas
             // 
             this.cbHas.AutoSize = true;
-            this.cbHas.Location = new System.Drawing.Point(12, 325);
+            this.cbHas.Location = new System.Drawing.Point(16, 333);
             this.cbHas.Name = "cbHas";
             this.cbHas.Size = new System.Drawing.Size(80, 17);
             this.cbHas.TabIndex = 15;
@@ -217,7 +206,7 @@
             // cbMas
             // 
             this.cbMas.AutoSize = true;
-            this.cbMas.Location = new System.Drawing.Point(12, 366);
+            this.cbMas.Location = new System.Drawing.Point(16, 374);
             this.cbMas.Name = "cbMas";
             this.cbMas.Size = new System.Drawing.Size(80, 17);
             this.cbMas.TabIndex = 16;
@@ -227,7 +216,7 @@
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(9, 41);
+            this.lblType.Location = new System.Drawing.Point(13, 41);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(35, 13);
             this.lblType.TabIndex = 18;
@@ -236,7 +225,7 @@
             // lblWorth
             // 
             this.lblWorth.AutoSize = true;
-            this.lblWorth.Location = new System.Drawing.Point(154, 41);
+            this.lblWorth.Location = new System.Drawing.Point(158, 41);
             this.lblWorth.Name = "lblWorth";
             this.lblWorth.Size = new System.Drawing.Size(35, 13);
             this.lblWorth.TabIndex = 19;
@@ -245,7 +234,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(10, 81);
+            this.lblName.Location = new System.Drawing.Point(14, 81);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 20;
@@ -254,7 +243,7 @@
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(10, 121);
+            this.lblDesc.Location = new System.Drawing.Point(14, 121);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(35, 13);
             this.lblDesc.TabIndex = 21;
@@ -262,7 +251,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 402);
+            this.btnAdd.Location = new System.Drawing.Point(16, 410);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(39, 22);
             this.btnAdd.TabIndex = 22;
@@ -272,7 +261,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(53, 402);
+            this.btnClear.Location = new System.Drawing.Point(234, 410);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(39, 22);
             this.btnClear.TabIndex = 23;
@@ -284,7 +273,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 436);
+            this.ClientSize = new System.Drawing.Size(300, 450);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblDesc);
@@ -308,9 +297,10 @@
             this.Controls.Add(this.tbDesc);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.cbType);
-            this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(50, 50);
             this.Name = "AddItem";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "AddItem";
             this.Load += new System.EventHandler(this.AddItem_Load);
             this.ResumeLayout(false);
@@ -319,8 +309,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbDesc;

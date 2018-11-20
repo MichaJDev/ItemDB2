@@ -40,6 +40,7 @@ namespace ItemDB2
                "This project was created by Micha Janssen");
                 hlr.checkTables();
             }
+            this.FormClosed += new FormClosedEventHandler(formClosed);
         }
 
         private void btAddItem_Click(object sender, EventArgs e)
@@ -62,13 +63,34 @@ namespace ItemDB2
             switch (option)
             {
                 case "Add Item":
-                    aItem.Show();
+                    if (!aItem.Visible)
+                    {
+                        aItem.Show();
+                    }
+                    else
+                    {
+                        aItem.Hide();
+                    }
                     break;
                 case "Delete Item":
-                    dItem.Show();
+                    if(!dItem.Visible){
+                        dItem.Show();
+                    }
+                    else
+                    {
+                        dItem.Hide();
+                    }
                     break;
                 case "Database":
-                    sDB.Show();
+                    if (!sDB.Visible)
+                    {
+                        sDB.Show();
+                    }
+                    else
+                    {
+                        sDB.Hide();
+                    }
+
                     break;
             }
         }
@@ -91,6 +113,10 @@ namespace ItemDB2
         public void Box(String text)
         {
             MessageBox.Show(text);
+        }
+        private void formClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

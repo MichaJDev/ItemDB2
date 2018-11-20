@@ -38,7 +38,7 @@
             // 
             // btAddItem
             // 
-            this.btAddItem.Location = new System.Drawing.Point(23, 12);
+            this.btAddItem.Location = new System.Drawing.Point(1564, 354);
             this.btAddItem.Name = "btAddItem";
             this.btAddItem.Size = new System.Drawing.Size(188, 75);
             this.btAddItem.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // btDelItem
             // 
-            this.btDelItem.Location = new System.Drawing.Point(235, 12);
+            this.btDelItem.Location = new System.Drawing.Point(1564, 44);
             this.btDelItem.Name = "btDelItem";
             this.btDelItem.Size = new System.Drawing.Size(188, 75);
             this.btDelItem.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // btnShowDB
             // 
-            this.btnShowDB.Location = new System.Drawing.Point(447, 12);
+            this.btnShowDB.Location = new System.Drawing.Point(1564, 194);
             this.btnShowDB.Name = "btnShowDB";
             this.btnShowDB.Size = new System.Drawing.Size(188, 75);
             this.btnShowDB.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(544, 104);
+            this.button1.Location = new System.Drawing.Point(1661, 528);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 24);
             this.button1.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(447, 104);
+            this.button2.Location = new System.Drawing.Point(1564, 528);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(91, 24);
             this.button2.TabIndex = 4;
@@ -90,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 140);
+            this.ClientSize = new System.Drawing.Size(1786, 577);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnShowDB);
@@ -99,6 +99,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }

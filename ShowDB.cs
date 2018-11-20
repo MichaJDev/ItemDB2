@@ -13,11 +13,13 @@ namespace ItemDB2
     public partial class ShowDB : Form
     {
         Handler hlr = new Handler();
-
+        
         public ShowDB()
         {
+            
             InitializeComponent();
-
+            this.TopMost = true;
+            dbgrid.Width = this.Width - 100;
         }
 
         private void ShowDB_FormClosed(object sender, FormClosedEventArgs e)
@@ -38,15 +40,21 @@ namespace ItemDB2
             }
             cbType.SelectedIndex = 0;
         }
-        public void setData(BindingSource bs)
-        {
-            dbgrid.DataSource = bs;
-        }
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbType.Text != "-----------------------------------")
             {
-                dbgrid.DataSource = hlr.getBSource(cbType.Text);
+                string text = cbType.Text;
+                switch (text){
+                    case "One Handed Sword":
+                        text = "OneHandedSword";
+                        break;
+                    case "Two Handed Sword":
+                        text = "TwoHandedSword";
+                        break;
+                }
+                
+                dbgrid.DataSource = hlr.getBSource(text);
             }
             else
             {

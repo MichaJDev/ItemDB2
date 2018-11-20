@@ -37,6 +37,7 @@
             this.lblDB = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.btClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -115,11 +116,22 @@
             this.lblPassword.TabIndex = 8;
             this.lblPassword.Text = "label4";
             // 
+            // btClose
+            // 
+            this.btClose.Location = new System.Drawing.Point(15, 185);
+            this.btClose.Name = "btClose";
+            this.btClose.Size = new System.Drawing.Size(75, 23);
+            this.btClose.TabIndex = 9;
+            this.btClose.Text = "Close";
+            this.btClose.UseVisualStyleBackColor = true;
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
+            // 
             // DBCredentials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(271, 220);
+            this.Controls.Add(this.btClose);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblDB);
@@ -130,7 +142,8 @@
             this.Controls.Add(this.tbServer);
             this.Controls.Add(this.button1);
             this.Name = "DBCredentials";
-            this.Text = "DBCredentials";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ItemDB v2 Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +160,6 @@
         private System.Windows.Forms.Label lblDB;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Button btClose;
     }
 }

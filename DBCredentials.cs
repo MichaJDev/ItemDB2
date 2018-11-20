@@ -20,7 +20,7 @@ namespace ItemDB2
         {
             InitializeComponent();
             hlr = new Handler();
-            
+            setLabels();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,6 +44,18 @@ namespace ItemDB2
         public bool isLogged()
         {
             return logged;
+        }
+        private void setLabels()
+        {
+            lblUser.Text = "Username";
+            lblPassword.Text = "Password";
+            lblDB.Text = "Database";
+            lblServer.Text = "Server IP";
+        }
+
+        private void btClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

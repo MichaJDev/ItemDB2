@@ -18,6 +18,7 @@ namespace ItemDB2
             InitializeComponent();
             hlr = new Handler();
             setEvent();
+            this.TopMost = true;
         }
 
         private void AddItem_FormClosed(object sender, FormClosedEventArgs e)

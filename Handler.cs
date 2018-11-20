@@ -22,7 +22,7 @@ namespace ItemDB2
         }
         public void checkTables()
         {
-            string[] type = new string[] { "Head", "Shoulders", "Chest", "Waist", "Hands", "Legs", "Boots", "One Handed Sword", "Two Handed Sword", "Shield", "Bow" };
+            string[] type = new string[] { "Head", "Shoulders", "Chest", "Waist", "Hands", "Legs", "Boots", "OneHandedSword", "TwoHandedSword", "Shield", "Bow" };
             for (int i = 0; i < type.Length; i++)
             {
                 if (!(con.checkItemTable(type[i])))
@@ -46,6 +46,11 @@ namespace ItemDB2
         {
             //Add Stuff For JSON Additation
         }
+        public void del(String text, int id)
+        {
+            con.deleteRow(text, id);
+        }
+        
     }
 }
 

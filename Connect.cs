@@ -84,7 +84,7 @@ namespace ItemDB2
         public BindingSource getData(String Text)
         {
             BindingSource dSource = new BindingSource();
-            string query = "SELECT * FROM " + Text;
+            string query = "SELECT * FROM " + Text.ToLower();
             if (OpenConnection())
             {
                 MySqlDataAdapter mda = new MySqlDataAdapter();
@@ -99,6 +99,7 @@ namespace ItemDB2
                 CloseConnection();
                 
             }
+
             return dSource;
         }
 
@@ -135,6 +136,17 @@ namespace ItemDB2
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
+            }
+        }
+        public void deleteRow(String text, int id)
+        {
+            string query = "DELETE FROM " + text.ToLower() + " WHERE ID = " + id;
+            if (OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Deleted Row with ID: " + id + "\n" );
+                CloseConnection();
             }
         }
     }
