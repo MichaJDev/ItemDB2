@@ -33,19 +33,17 @@ namespace ItemDB2
             }
         }
 
-        internal void setLogin(Login log)
+        internal void setLogin(JsonLoginData log)
         {
-            con.setCredentials(log.getServer(), log.getDataBase(), log.getUserName(), log.getPassWord());
-
+            FileHandler fh = new FileHandler();
+            fh.writeToJson(log);
+    
         }
         public BindingSource getBSource(String text)
         {
             return con.getData(text);
         }
-        public void AddJson()
-        {
-            //Add Stuff For JSON Additation
-        }
+        
         public void del(String text, int id)
         {
             con.deleteRow(text, id);

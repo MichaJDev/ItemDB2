@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 
 namespace ItemDB2
 {
@@ -103,6 +104,7 @@ namespace ItemDB2
             return dSource;
         }
 
+       
         public bool checkItemTable(String Text)
         {
             bool tableExists = false;

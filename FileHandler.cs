@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +10,16 @@ namespace ItemDB2
 {
     class FileHandler
     {
-        public void setJsonFile()
+        Handler hlr;
+        public FileHandler()
         {
-
+            hlr = new Handler();
+        }
+        public void writeToJson(JsonLoginData jld)
+        {
+            string objjsonData = JsonConvert.SerializeObject(jld);
+            string fileType = ""
+            System.IO.File.WriteAllText(objjsonData);
         }
 
     }
