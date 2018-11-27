@@ -7,41 +7,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 namespace ItemDB2
 {
     class FileHandler
     {
         Handler hlr;
-        
+
         public FileHandler()
         {
             hlr = new Handler();
         }
         public void createJson(JsonLoginData jld)
         {
-            List<JsonLoginData> _jld = new List<JsonLoginData>();
-            _jld.Add(jld);
-            string objjsonData = JsonConvert.SerializeObject(_jld.ToArray());
-            
-            if (!File.Exists(objjsonData))
+            JObject loginData = new JObject(
+                    new JProperty("server", jld.getServer()),
+                    new JProperty("database", jld.getDB()),
+                    new JProperty("user", jld.getUID()),
+                    new JProperty("password", jld.getPass()));
+
+
+            File.WriteAllText("jdl.json", loginData.ToString());
+
+            using (StreamWriter file = File.CreateText("jdl.json"))
+            using (JsonTextWriter writer = new JsonTextWriter(file))
             {
-                try
-                {
-                    File.Create("LoginData.json", objjsonData);
-                }
-                catch (System.IO.FileNotFoundException ex)
-                {
-                    Debug.WriteLine(ex.ToString());
-                }
+                loginData.WriteTo(writer);
+                MessageBox.Show(file.ToString());
             }
+            
         }
-        public void writeToJson(JsonLoginData jld)
+        public JObject readJson()
         {
-            string objjsonData = JsonConvert.SerializeObject(jld);
-            if (File.Exists(objjsonData)){
-                File.WriteAllLines("LoginData.json", objjsonData.ToArray());
-            };
+            JObject o1 = JObject.Parse(File.ReadAllText("jld.json"));
+            JObject o3 = new JObject();
+            using (StreamReader file = File.OpenText("jld.json"))
+            using (JsonTextReader reader = new JsonTextReader(file))
+            {
+                JObject o2 = (JObject)JToken.ReadFrom(reader);
+                o3 = o2;
+            }
+            return o3;
         }
     }
 };

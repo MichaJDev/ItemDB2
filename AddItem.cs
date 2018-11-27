@@ -49,14 +49,25 @@ namespace ItemDB2
             cbHas.Text = "Haste";
             cbMas.Text = "Mastery";
             string[] type = new string[] { "-----------------------------------", "Head", "Shoulders", "Chest", "Waist", "Hands", "Legs", "Boots", "One Handed Sword", "Two Handed Sword", "Shield", "Bow" };
+            List<string> types = new List<string>();
             for (int i = 0; i < type.Length; i++)
             {
-                cbType.Items.Add(type[i]);
+                types.Add(type[i]);
             }
+            foreach(string item in types)
+            {
+                cbType.Items.Add(item);
+            }
+
             string[] worth = new string[] { "-----------------------------------", "Poor", "Common", "UnCommon", "Rare", "Epic", "Legendary", "Artifact", "Heirloom" };
+            List<string> worths = new List<string>();
             for (int i = 0; i < worth.Length; i++)
             {
-                cbWorth.Items.Add(worth[i]);
+                worths.Add(worth[i]);
+            }
+            foreach(string item in worths)
+            {
+                cbWorth.Items.Add(item);
             }
             cbWorth.SelectedIndex = 0;
             cbType.SelectedIndex = 0;
@@ -160,8 +171,5 @@ namespace ItemDB2
         {
             ClearAll();
         }
-
     }
-
-
 }

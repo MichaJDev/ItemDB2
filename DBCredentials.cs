@@ -25,10 +25,11 @@ namespace ItemDB2
         private void button1_Click(object sender, EventArgs e)
         {
 
-            JsonLoginData jld = new JsonLoginData(tbServer.Text, tbDB.Text, tbUser.Text, tbPassword.text);
-            hlr.setLogin(jld);
+            JsonLoginData jld = new JsonLoginData(tbServer.Text, tbDB.Text, tbUser.Text, tbPassword.Text);
+            hlr.writeToJso(jld);
             Form1 form = new Form1();
             form.Show();
+            this.Hide();
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
@@ -38,10 +39,6 @@ namespace ItemDB2
             {
                 MessageBox.Show("The Caps Lock key is ON.");
             }
-        }
-        public bool isLogged()
-        {
-            return logged;
         }
         private void setLabels()
         {

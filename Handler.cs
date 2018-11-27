@@ -33,12 +33,14 @@ namespace ItemDB2
             }
         }
 
-        internal void setLogin(JsonLoginData log)
+        public void writeToJso(JsonLoginData jld)
         {
             FileHandler fh = new FileHandler();
-            fh.writeToJson(log);
-    
+            fh.createJson(jld);
+            MessageBox.Show("JLD Stored");
         }
+
+
         public BindingSource getBSource(String text)
         {
             return con.getData(text);
