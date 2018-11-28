@@ -17,6 +17,7 @@ namespace ItemDB2
         public bool logged = false;
         public DBCredentials()
         {
+            
             InitializeComponent();
             hlr = new Handler();
             setLabels();
@@ -26,7 +27,7 @@ namespace ItemDB2
         {
 
             JsonLoginData jld = new JsonLoginData(tbServer.Text, tbDB.Text, tbUser.Text, tbPassword.Text);
-            hlr.writeToJso(jld);
+            hlr.writeToJson(jld);
             Form1 form = new Form1();
             form.Show();
             this.Hide();
@@ -39,6 +40,10 @@ namespace ItemDB2
             {
                 MessageBox.Show("The Caps Lock key is ON.");
             }
+        }
+        public void onLoad(object sender, EventArgs e)
+        {
+            MessageBox.Show(hlr.readJLDFromJson().Property("server").ToString());
         }
         private void setLabels()
         {

@@ -21,7 +21,7 @@ namespace ItemDB2
         MySqlConnection connection;
         public Connect()
         {
-            server = "localhost";
+            server = "localhost" ;
             database = "test";
             uid = "root";
             password = "";

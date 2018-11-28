@@ -19,7 +19,7 @@ namespace ItemDB2
         {
             hlr = new Handler();
         }
-        public void createJson(JsonLoginData jld)
+        public void createJLDJson(JsonLoginData jld)
         {
             JObject loginData = new JObject(
                     new JProperty("server", jld.getServer()),
@@ -38,16 +38,22 @@ namespace ItemDB2
             }
             
         }
-        public JObject readJson()
+        public JObject readJLDJson()
         {
-            JObject o1 = JObject.Parse(File.ReadAllText("jld.json"));
-            JObject o3 = new JObject();
-            using (StreamReader file = File.OpenText("jld.json"))
-            using (JsonTextReader reader = new JsonTextReader(file))
+            try
             {
-                JObject o2 = (JObject)JToken.ReadFrom(reader);
-                o3 = o2;
+                JObject o3 = new JObject();
+                using (StreamReader file = File.OpenText("jld.json"))
+                using (JsonTextReader reader = new JsonTextReader(file))
+                {
+                    JObject o2 = (JObject)JToken.ReadFrom(reader);
+                    o3 = o2;
+                }
+            }catch(FileNotFoundException ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
+            
             return o3;
         }
     }

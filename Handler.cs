@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,14 +34,20 @@ namespace ItemDB2
             }
         }
 
-        public void writeToJso(JsonLoginData jld)
+        public void writeToJson(JsonLoginData jld)
         {
             FileHandler fh = new FileHandler();
-            fh.createJson(jld);
+            fh.createJLDJson(jld);
             MessageBox.Show("JLD Stored");
         }
 
-
+        public JObject readJLDFromJson()
+        {
+            FileHandler fh = new FileHandler();
+            
+            MessageBox.Show("JLD Read");
+            return fh.readJLDJson();
+        }
         public BindingSource getBSource(String text)
         {
             return con.getData(text);
