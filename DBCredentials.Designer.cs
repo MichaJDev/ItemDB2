@@ -56,6 +56,7 @@
             this.tbServer.Name = "tbServer";
             this.tbServer.Size = new System.Drawing.Size(242, 20);
             this.tbServer.TabIndex = 1;
+            this.tbServer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DBCredentials_KeyPress);
             // 
             // tbDB
             // 
@@ -63,6 +64,7 @@
             this.tbDB.Name = "tbDB";
             this.tbDB.Size = new System.Drawing.Size(242, 20);
             this.tbDB.TabIndex = 2;
+            this.tbDB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DBCredentials_KeyPress);
             // 
             // tbUser
             // 
@@ -70,6 +72,7 @@
             this.tbUser.Name = "tbUser";
             this.tbUser.Size = new System.Drawing.Size(242, 20);
             this.tbUser.TabIndex = 3;
+            this.tbUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DBCredentials_KeyPress);
             // 
             // tbPassword
             // 
@@ -79,6 +82,7 @@
             this.tbPassword.Size = new System.Drawing.Size(242, 20);
             this.tbPassword.TabIndex = 4;
             this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
+            this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DBCredentials_KeyPress);
             // 
             // lblServer
             // 
@@ -145,6 +149,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ItemDB v2 Login";
             this.Load += new System.EventHandler(this.onLoad);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DBCredentials_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -21,6 +21,14 @@ namespace ItemDB2
         {
             con.Insert(item);
         }
+        public List<string> getTables()
+        {
+            return con.getTables();
+        }
+        public void setCredentials(JObject jld)
+        {
+            //con.setCredentials(jld);
+        }
         public void checkTables()
         {
             string[] type = new string[] { "Head", "Shoulders", "Chest", "Waist", "Hands", "Legs", "Boots", "OneHandedSword", "TwoHandedSword", "Shield", "Bow" };
@@ -44,7 +52,7 @@ namespace ItemDB2
         public JObject readJLDFromJson()
         {
             FileHandler fh = new FileHandler();
-            
+
             MessageBox.Show("JLD Read");
             return fh.readJLDJson();
         }
@@ -52,12 +60,12 @@ namespace ItemDB2
         {
             return con.getData(text);
         }
-        
+
         public void del(String text, int id)
         {
             con.deleteRow(text, id);
         }
-        
+
     }
 }
 

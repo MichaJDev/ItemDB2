@@ -45,3 +45,4 @@ C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB2\ItemDB2\obj\Debug\ItemDB2.exe
 C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB2\ItemDB2\obj\Debug\ItemDB2.pdb
 C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB2\ItemDB2\bin\Debug\Newtonsoft.Json.dll
 C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB2\ItemDB2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\xflak\OneDrive\Documenten\GitHub\ItemDB2\ItemDB2\obj\Debug\ItemDB2.credentialCheck.resources

@@ -77,6 +77,12 @@
       <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Connect.cs" />
+    <Compile Include="credentialCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="credentialCheck.Designer.cs">
+      <DependentUpon>credentialCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBCredentials.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </Compile>
     <EmbeddedResource Include="AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="credentialCheck.resx">
+      <DependentUpon>credentialCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DBCredentials.resx">
       <DependentUpon>DBCredentials.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,21 +14,33 @@ namespace ItemDB2
     public partial class DBCredentials : Form
     {
         Handler hlr;
-
         public bool logged = false;
+
         public DBCredentials()
         {
-            
-            InitializeComponent();
+
             hlr = new Handler();
+            this.Hide();
+            InitializeComponent();
             setLabels();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            JsonLoginData jld = new JsonLoginData(tbServer.Text, tbDB.Text, tbUser.Text, tbPassword.Text);
-            hlr.writeToJson(jld);
+            if (hlr.readJLDFromJson().Property("server").Value.ToString() == "")
+            {
+                JsonLoginData jld = new JsonLoginData(tbServer.Text, tbDB.Text, tbUser.Text, tbPassword.Text);
+                hlr.writeToJson(jld);
+            }
+            else if (tbServer.Text == hlr.readJLDFromJson().Property("server").Value.ToString())
+            {
+                MessageBox.Show("Login Credentials Updated");
+                JsonLoginData jld = new JsonLoginData(hlr.readJLDFromJson().Property("server").Value.ToString(), tbDB.Text, tbUser.Text, tbPassword.Text);
+                hlr.writeToJson(jld);
+                MessageBox.Show(hlr.readJLDFromJson().Property("server").Value.ToString());
+                JObject jo = hlr.readJLDFromJson();
+                hlr.setCredentials(jo);
+            }
             Form1 form = new Form1();
             form.Show();
             this.Hide();
@@ -43,7 +56,7 @@ namespace ItemDB2
         }
         public void onLoad(object sender, EventArgs e)
         {
-            MessageBox.Show(hlr.readJLDFromJson().Property("server").ToString());
+            MessageBox.Show(hlr.readJLDFromJson().Property("server").Value.ToString());
         }
         private void setLabels()
         {
@@ -56,6 +69,30 @@ namespace ItemDB2
         private void btClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void DBCredentials_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                if (hlr.readJLDFromJson().Property("server").Value.ToString() == "")
+                {
+                    JsonLoginData jld = new JsonLoginData(tbServer.Text, tbDB.Text, tbUser.Text, tbPassword.Text);
+                    hlr.writeToJson(jld);
+                }
+                else if (tbServer.Text == hlr.readJLDFromJson().Property("server").Value.ToString())
+                {
+                    MessageBox.Show("Login Credentials Updated");
+                    JsonLoginData jld = new JsonLoginData(hlr.readJLDFromJson().Property("server").Value.ToString(), tbDB.Text, tbUser.Text, tbPassword.Text);
+                    hlr.writeToJson(jld);
+                    MessageBox.Show(hlr.readJLDFromJson().Property("server").Value.ToString());
+                    JObject jo = hlr.readJLDFromJson();
+                    hlr.setCredentials(jo);
+                }
+                Form1 form = new Form1();
+                form.Show();
+                this.Hide();
+            }
         }
     }
 }

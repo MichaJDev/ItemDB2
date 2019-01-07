@@ -66,5 +66,6 @@ namespace ItemDB2
         {
             setComboBox();
         }
+        
     }
 }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ItemDB2
 {
@@ -17,14 +18,19 @@ namespace ItemDB2
     {
 
         //TODO: Dynamic Additation of Tables to the Database on First start.    
-        string server, database, uid, password;
+        public string server;
+        public string database;
+        public string uid;
+        public string password;
         MySqlConnection connection;
+        FileHandler fh = new FileHandler();
+
         public Connect()
         {
-            server = "localhost" ;
-            database = "test";
-            uid = "root";
-            password = "";
+            server = fh.readJLDJson().Property("server").Value.ToString();
+            database = fh.readJLDJson().Property("database").Value.ToString(); ;
+            uid = fh.readJLDJson().Property("user").Value.ToString(); ;
+            password = fh.readJLDJson().Property("password").Value.ToString(); ;
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
                 database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
@@ -32,13 +38,7 @@ namespace ItemDB2
             connection = new MySqlConnection(connectionString);
         }
 
-        public void setCredentials(string server, string db, string uid, string pass)
-        {
-            this.server = server;
-            this.database = db;
-            this.uid = uid;
-            this.password = pass;
-        }
+
 
         public bool OpenConnection()
         {
@@ -71,10 +71,10 @@ namespace ItemDB2
         {
             MessageBox.Show(item.getType().ToLower());
             string query;
-           
+
             query = "INSERT INTO " + item.getType().ToLower() + "(Name,Description,Worth,Stamina,Strength,Intellect,Agility,Haste,Mastery) VALUES('" + item.getName() + "', '" + item.getDesc() + "','" + item.getWorth() + "', " + item.getStam() + ", " + item.getStr() + ", " + item.getIntl() + ", " + item.getAgi() + ", " + item.getHas() + ", " + item.getMas() + ")";
 
-            if(OpenConnection())
+            if (OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
@@ -92,19 +92,13 @@ namespace ItemDB2
                 mda.SelectCommand = new MySqlCommand(query, connection);
                 DataTable tbl = new DataTable();
                 mda.Fill(tbl);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = tbl;
-                dSource = bSource;
-                               
+                dSource.DataSource = tbl;
                 CloseConnection();
-                
             }
-
             return dSource;
         }
 
-       
+
         public bool checkItemTable(String Text)
         {
             bool tableExists = false;
@@ -147,9 +141,34 @@ namespace ItemDB2
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Deleted Row with ID: " + id + "\n" );
+                MessageBox.Show("Deleted Row with ID: " + id + "\n");
                 CloseConnection();
             }
+        }
+        public List<string> getTables()
+        {
+            List<string> tables = new List<string>();
+
+            string query = "SHOW TABLES FROM test";
+            if (OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        tables.Add(reader.GetString(0));
+                    }
+                    reader.Close();
+                    CloseConnection();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            return tables;
         }
     }
 }

@@ -48,13 +48,10 @@ namespace ItemDB2
             cbInt.Text = "Intellect";
             cbHas.Text = "Haste";
             cbMas.Text = "Mastery";
-            string[] type = new string[] { "-----------------------------------", "Head", "Shoulders", "Chest", "Waist", "Hands", "Legs", "Boots", "One Handed Sword", "Two Handed Sword", "Shield", "Bow" };
-            List<string> types = new List<string>();
-            for (int i = 0; i < type.Length; i++)
-            {
-                types.Add(type[i]);
-            }
-            foreach(string item in types)
+            
+            List<string> tables = hlr.getTables();
+            cbType.Items.Add("------------------------");
+            foreach(string item in tables)
             {
                 cbType.Items.Add(item);
             }
@@ -69,8 +66,8 @@ namespace ItemDB2
             {
                 cbWorth.Items.Add(item);
             }
-            cbWorth.SelectedIndex = 0;
-            cbType.SelectedIndex = 0;
+            
+            
         }
 
         public void setEvent()

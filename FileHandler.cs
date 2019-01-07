@@ -13,11 +13,31 @@ namespace ItemDB2
 {
     class FileHandler
     {
-        Handler hlr;
+        
 
         public FileHandler()
         {
-            hlr = new Handler();
+        
+        }
+        public void createNewJson()
+        {
+            
+            JObject loginData = new JObject(
+                    new JProperty("server", ""),
+                    new JProperty("database", ""),
+                    new JProperty("user", ""),
+                    new JProperty("password", ""));
+
+
+            File.WriteAllText("jdl.json", loginData.ToString());
+
+            using (StreamWriter file = File.CreateText("jdl.json"))
+            using (JsonTextWriter writer = new JsonTextWriter(file))
+            {
+                
+                loginData.WriteTo(writer);
+                MessageBox.Show(file.ToString());
+            }
         }
         public void createJLDJson(JsonLoginData jld)
         {
@@ -40,10 +60,10 @@ namespace ItemDB2
         }
         public JObject readJLDJson()
         {
+            JObject o3 = new JObject();
             try
             {
-                JObject o3 = new JObject();
-                using (StreamReader file = File.OpenText("jld.json"))
+                using (StreamReader file = File.OpenText("jdl.json"))
                 using (JsonTextReader reader = new JsonTextReader(file))
                 {
                     JObject o2 = (JObject)JToken.ReadFrom(reader);
@@ -53,7 +73,6 @@ namespace ItemDB2
             {
                 MessageBox.Show(ex.ToString());
             }
-            
             return o3;
         }
     }
