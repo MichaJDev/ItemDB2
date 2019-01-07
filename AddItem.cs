@@ -125,7 +125,17 @@ namespace ItemDB2
             
             if (cbType.SelectedIndex != 0 && cbWorth.SelectedIndex != 0 && tbName.Text != "")
             {
+                
                 Item item = new Item(tbName.Text, tbDesc.Text, cbType.Text, cbWorth.Text, checkTBStats(tbStam), checkTBStats(tbStr), checkTBStats(tbInt), checkTBStats(tbAgi), checkTBStats(tbHas), checkTBStats(tbMas));
+                MessageBox.Show(item.ToString());
+                if (cbType.Text.Contains("head"))
+                {
+                    MessageBox.Show("Yay you got head!");
+                }
+                else
+                {
+                    MessageBox.Show("Dawh you didnt receive any head!");
+                }
                 hlr.Add(item);
                 ClearAll();
             }
