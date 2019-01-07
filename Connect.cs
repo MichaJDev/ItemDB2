@@ -27,14 +27,25 @@ namespace ItemDB2
 
         public Connect()
         {
-            server = fh.readJLDJson().Property("server").Value.ToString();
-            database = fh.readJLDJson().Property("database").Value.ToString(); ;
-            uid = fh.readJLDJson().Property("user").Value.ToString(); ;
-            password = fh.readJLDJson().Property("password").Value.ToString(); ;
             string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-                database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            if (fh.JsonExists())
+            {
+                server = fh.readJLDJson().Property("server").Value.ToString();
+                database = fh.readJLDJson().Property("database").Value.ToString();
+                uid = fh.readJLDJson().Property("user").Value.ToString();
+                password = fh.readJLDJson().Property("password").Value.ToString();
 
+            }
+            else
+            {
+                server = "";
+                database = "";
+                uid = "";
+                password = "";
+
+            }
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
+                    database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
         }
 
@@ -69,7 +80,7 @@ namespace ItemDB2
         }
         public void Insert(Item item)
         {
-            MessageBox.Show(item.getType().ToLower());
+
             string query;
 
             query = "INSERT INTO " + item.getType().ToLower() + "(Name,Description,Worth,Stamina,Strength,Intellect,Agility,Haste,Mastery) VALUES('" + item.getName() + "', '" + item.getDesc() + "','" + item.getWorth() + "', " + item.getStam() + ", " + item.getStr() + ", " + item.getIntl() + ", " + item.getAgi() + ", " + item.getHas() + ", " + item.getMas() + ")";

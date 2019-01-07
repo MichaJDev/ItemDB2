@@ -27,23 +27,7 @@ namespace ItemDB2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (hlr.readJLDFromJson().Property("server").Value.ToString() == "")
-            {
-                JsonLoginData jld = new JsonLoginData(tbServer.Text, tbDB.Text, tbUser.Text, tbPassword.Text);
-                hlr.writeToJson(jld);
-            }
-            else if (tbServer.Text == hlr.readJLDFromJson().Property("server").Value.ToString())
-            {
-                MessageBox.Show("Login Credentials Updated");
-                JsonLoginData jld = new JsonLoginData(hlr.readJLDFromJson().Property("server").Value.ToString(), tbDB.Text, tbUser.Text, tbPassword.Text);
-                hlr.writeToJson(jld);
-                MessageBox.Show(hlr.readJLDFromJson().Property("server").Value.ToString());
-                JObject jo = hlr.readJLDFromJson();
-                hlr.setCredentials(jo);
-            }
-            Form1 form = new Form1();
-            form.Show();
-            this.Hide();
+            storeCredentials();
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
@@ -75,24 +59,28 @@ namespace ItemDB2
         {
             if(e.KeyChar == Convert.ToChar(Keys.Return))
             {
-                if (hlr.readJLDFromJson().Property("server").Value.ToString() == "")
-                {
-                    JsonLoginData jld = new JsonLoginData(tbServer.Text, tbDB.Text, tbUser.Text, tbPassword.Text);
-                    hlr.writeToJson(jld);
-                }
-                else if (tbServer.Text == hlr.readJLDFromJson().Property("server").Value.ToString())
-                {
-                    MessageBox.Show("Login Credentials Updated");
-                    JsonLoginData jld = new JsonLoginData(hlr.readJLDFromJson().Property("server").Value.ToString(), tbDB.Text, tbUser.Text, tbPassword.Text);
-                    hlr.writeToJson(jld);
-                    MessageBox.Show(hlr.readJLDFromJson().Property("server").Value.ToString());
-                    JObject jo = hlr.readJLDFromJson();
-                    hlr.setCredentials(jo);
-                }
-                Form1 form = new Form1();
-                form.Show();
-                this.Hide();
+                storeCredentials();
             }
+        }
+        private void storeCredentials()
+        {
+            if (hlr.readJLDFromJson().Property("server").Value.ToString() == "")
+            {
+                JsonLoginData jld = new JsonLoginData(tbServer.Text, tbDB.Text, tbUser.Text, tbPassword.Text);
+                hlr.writeToJson(jld);
+            }
+            else if (tbServer.Text == hlr.readJLDFromJson().Property("server").Value.ToString())
+            {
+                MessageBox.Show("Login Credentials Updated");
+                JsonLoginData jld = new JsonLoginData(hlr.readJLDFromJson().Property("server").Value.ToString(), tbDB.Text, tbUser.Text, tbPassword.Text);
+                hlr.writeToJson(jld);
+
+                JObject jo = hlr.readJLDFromJson();
+                hlr.setCredentials(jo);
+            }
+            Form1 form = new Form1();
+            form.Show();
+            this.Hide();
         }
     }
 }

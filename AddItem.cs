@@ -34,7 +34,7 @@ namespace ItemDB2
         private void AddItem_Load(object sender, EventArgs e)
         {
             setInfo();
-            //checkBoxChecker();
+            
         }
         public void setInfo()
         {
@@ -66,7 +66,9 @@ namespace ItemDB2
             {
                 cbWorth.Items.Add(item);
             }
-            
+            cbWorth.SelectedIndex = 0;
+            cbType.SelectedIndex = 0; 
+
             
         }
 
@@ -120,15 +122,11 @@ namespace ItemDB2
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(cbType.Text);
+            
             if (cbType.SelectedIndex != 0 && cbWorth.SelectedIndex != 0 && tbName.Text != "")
             {
                 Item item = new Item(tbName.Text, tbDesc.Text, cbType.Text, cbWorth.Text, checkTBStats(tbStam), checkTBStats(tbStr), checkTBStats(tbInt), checkTBStats(tbAgi), checkTBStats(tbHas), checkTBStats(tbMas));
                 hlr.Add(item);
-                MessageBox.Show("Item Added!\n Name: " + item.getName() + "\nDesc: " + item.getDesc()
-                    + "\nType: " + item.getType() + "\nWorth: " + item.getWorth() + "\nStamina: " + item.getStam()
-                    + "\nStength: " + item.getStr() + "\nIntellect: " + item.getIntl()
-                    + "\nAgility: " + item.getAgi() + "\nHaste: " + item.getHas() + "\nMastery: " + item.getMas());
                 ClearAll();
             }
             else

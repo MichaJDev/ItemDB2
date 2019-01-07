@@ -46,14 +46,14 @@ namespace ItemDB2
         {
             FileHandler fh = new FileHandler();
             fh.createJLDJson(jld);
-            MessageBox.Show("JLD Stored");
+
         }
 
         public JObject readJLDFromJson()
         {
             FileHandler fh = new FileHandler();
 
-            MessageBox.Show("JLD Read");
+
             return fh.readJLDJson();
         }
         public BindingSource getBSource(String text)
@@ -65,7 +65,17 @@ namespace ItemDB2
         {
             con.deleteRow(text, id);
         }
+        public void createNewJson()
+        {
+            FileHandler fh = new FileHandler();
+            fh.createNewJson();
+        }
+        public bool JsonExists()
+        {
+            FileHandler fh = new FileHandler();
 
+            return fh.JsonExists();
+        }
     }
 }
 

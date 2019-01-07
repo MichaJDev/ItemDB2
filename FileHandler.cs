@@ -13,30 +13,53 @@ namespace ItemDB2
 {
     class FileHandler
     {
-        
 
+        string path = @"C:\ItemDB\jdl.json";
         public FileHandler()
         {
-        
+
+        }
+        public bool JsonExists()
+        {
+            if (File.Exists(path))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public void createDirectory()
+        {
+            string root = @"C:\ItemDB\";
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
         }
         public void createNewJson()
         {
-            
-            JObject loginData = new JObject(
-                    new JProperty("server", ""),
-                    new JProperty("database", ""),
-                    new JProperty("user", ""),
-                    new JProperty("password", ""));
 
-
-            File.WriteAllText("jdl.json", loginData.ToString());
-
-            using (StreamWriter file = File.CreateText("jdl.json"))
-            using (JsonTextWriter writer = new JsonTextWriter(file))
+            if (!File.Exists(path))
             {
-                
-                loginData.WriteTo(writer);
-                MessageBox.Show(file.ToString());
+                createDirectory();
+                JObject loginData = new JObject(
+                        new JProperty("server", ""),
+                        new JProperty("database", ""),
+                        new JProperty("user", ""),
+                        new JProperty("password", ""));
+
+
+                File.WriteAllText(path, loginData.ToString());
+
+                using (StreamWriter file = File.CreateText(path))
+                using (JsonTextWriter writer = new JsonTextWriter(file))
+                {
+
+                    loginData.WriteTo(writer);
+                    
+                }
             }
         }
         public void createJLDJson(JsonLoginData jld)
@@ -50,30 +73,34 @@ namespace ItemDB2
 
             File.WriteAllText("jdl.json", loginData.ToString());
 
-            using (StreamWriter file = File.CreateText("jdl.json"))
+            using (StreamWriter file = File.CreateText(path))
             using (JsonTextWriter writer = new JsonTextWriter(file))
             {
                 loginData.WriteTo(writer);
-                MessageBox.Show(file.ToString());
-            }
             
+            }
+
         }
         public JObject readJLDJson()
         {
             JObject o3 = new JObject();
-            try
+            if (File.Exists(path))
             {
-                using (StreamReader file = File.OpenText("jdl.json"))
-                using (JsonTextReader reader = new JsonTextReader(file))
+                try
                 {
-                    JObject o2 = (JObject)JToken.ReadFrom(reader);
-                    o3 = o2;
+                    using (StreamReader file = File.OpenText(path))
+                    using (JsonTextReader reader = new JsonTextReader(file))
+                    {
+                        JObject o2 = (JObject)JToken.ReadFrom(reader);
+                        o3 = o2;
+                    }
                 }
-            }catch(FileNotFoundException ex)
-            {
-                MessageBox.Show(ex.ToString());
+                catch (FileNotFoundException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
             return o3;
         }
     }
-};
+}

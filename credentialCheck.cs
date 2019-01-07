@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +15,8 @@ namespace ItemDB2
     {
         Handler hlr = new Handler();
         public bool yes = false;
+        string path = @"C:\ItemDB\jdl.json";
 
-        
         public credentialCheck()
         {
             InitializeComponent();
@@ -23,20 +24,28 @@ namespace ItemDB2
 
         private void credentialCheck_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            MessageBox.Show(hlr.readJLDFromJson().Property("server").Value.ToString());
-
             lblText.Text = "You already have stored login credentials.\nWant to change them?";
             btnNo.Text = "No";
             btnYes.Text = "Yes";
-            if (hlr.readJLDFromJson().Property("server").Value.ToString() != "")
+            if (hlr.JsonExists())
             {
-                this.Show();
+                this.Hide();
+                
+                
+                if (hlr.readJLDFromJson().Property("server").Value.ToString() != "")
+                {
+                    this.Show();
+                }
+                else
+                {
+                    DBCredentials dbc = new DBCredentials();
+                }
             }
             else
             {
-                DBCredentials dbc = new DBCredentials();
+                hlr.createNewJson();
             }
+
         }
 
         private void btnYes_Click(object sender, EventArgs e)
