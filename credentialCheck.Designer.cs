@@ -1,6 +1,6 @@
 ﻿namespace ItemDB2
 {
-    partial class credentialCheck
+    partial class ItemDB2
     {
         /// <summary>
         /// Required designer variable.
@@ -62,7 +62,7 @@
             this.lblText.TabIndex = 2;
             this.lblText.Text = "label1";
             // 
-            // credentialCheck
+            // ItemDB2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -70,7 +70,8 @@
             this.Controls.Add(this.lblText);
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnYes);
-            this.Name = "credentialCheck";
+            this.Name = "ItemDB2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "credentialCheck";
             this.Load += new System.EventHandler(this.credentialCheck_Load);
             this.ResumeLayout(false);
