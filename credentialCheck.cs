@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace ItemDB2
 {
-    public partial class credentialCheck : Form
+    public partial class ItemDB2 : Form
     {
         Handler hlr = new Handler();
         public bool yes = false;
-        string path = @"C:\ItemDB\jdl.json";
+        const string path = @"C:\ItemDB\jdl.json";
 
-        public credentialCheck()
+        public ItemDB2()
         {
             InitializeComponent();
         }
