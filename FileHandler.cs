@@ -15,6 +15,7 @@ namespace ItemDB2
     {
 
         string path = @"C:\ItemDB\jdl.json";
+        LogHandler lh = new LogHandler();
         public FileHandler()
         {
 
@@ -97,7 +98,7 @@ namespace ItemDB2
                 }
                 catch (FileNotFoundException ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    lh.AddLineToLog(ex.ToString());
                 }
             }
             return o3;

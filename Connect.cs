@@ -24,7 +24,7 @@ namespace ItemDB2
         public string password;
         MySqlConnection connection;
         FileHandler fh = new FileHandler();
-
+        LogHandler lh = new LogHandler();
         public Connect()
         {
             string connectionString;
@@ -60,7 +60,7 @@ namespace ItemDB2
             }
             catch (MySqlException ex)
             {
-                Debug.WriteLine(ex.ToString());
+                lh.AddLineToLog(ex.ToString());
 
             }
             return false;
@@ -176,7 +176,7 @@ namespace ItemDB2
                 }
                 catch (MySqlException ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    lh.AddLineToLog(ex.ToString());
                 }
             }
             return tables;
