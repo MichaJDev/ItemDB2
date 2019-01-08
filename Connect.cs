@@ -83,7 +83,7 @@ namespace ItemDB2
 
             string query;
 
-            query = "INSERT INTO " + item.getType().ToLower() + "(Name,Description,Worth,Stamina,Strength,Intellect,Agility,Haste,Mastery) VALUES('" + item.getName() + "', '" + item.getDesc() + "','" + item.getWorth() + "', " + item.getStam() + ", " + item.getStr() + ", " + item.getIntl() + ", " + item.getAgi() + ", " + item.getHas() + ", " + item.getMas() + ")";
+            query = "INSERT INTO " + item.getType().ToLower() + "(Name,Description,Worth,Stamina,Strength,Intellect,Agility,Haste,Mastery) VALUES('" + item.getName() + "', '" + item.getDesc().Replace("'", "") + "','" + item.getWorth() + "', " + item.getStam() + ", " + item.getStr() + ", " + item.getIntl() + ", " + item.getAgi() + ", " + item.getHas() + ", " + item.getMas() + ")";
 
             if (OpenConnection())
             {

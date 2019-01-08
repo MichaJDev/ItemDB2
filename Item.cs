@@ -65,5 +65,22 @@ namespace ItemDB2
         {
             return mas;
         }
+        public override string ToString()
+        {
+            return "---------------------------\n" + 
+                "ITEM\n" +
+                "---------------------------\n" +
+                "Name: " + name + "\n" +
+                "Desc: " + desc + "\n" +
+                "Type: " + type + "\n" +
+                "Worth: " + worth + "\n" +
+                "Stamina: " + stam + "\n" +
+                "Strength: " + str + "\n" +
+                "Intellect: " + intl + "\n" +
+                "Agility: " + agi + "\n" +
+                "Haste: " + has + "\n" +
+                "Mastery: " + mas + "\n" +
+                "---------------------------";
+        }
     }
 }
